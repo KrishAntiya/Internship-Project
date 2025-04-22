@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { assets } from '../assets/assets'
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -8,7 +8,11 @@ const Navbar = () => {
 
     const { openSignIn } = useClerk()
     const { user } = useUser()
-
+    useEffect(() => {
+      console.log(user);
+      
+    }, [user])
+    
     const navigate = useNavigate()
 
     const { setShowRecruiterLogin } = useContext(AppContext)
